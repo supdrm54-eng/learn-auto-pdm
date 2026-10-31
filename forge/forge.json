@@ -1,0 +1,11 @@
+{
+  "slug": "learn-auto-pdm",
+  "answer": {
+    "skill": "learn-auto-pdm",
+    "workdir": "assets/lab",
+    "copy_to": "data",
+    "cmd": "py -3 -I -X utf8 {answers}/build_pdm.py",
+    "expected": "assets/answers/expected.json"
+  },
+  "note": "cmd 는 이 PC(Windows, python3 가 스토어 바로가기)에 맞춘 것. macOS·Linux 에서는 python3 -I {answers}/build_pdm.py"
+}

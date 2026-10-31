@@ -1,0 +1,15 @@
+learn-auto-pdm: 블록 7개 · 퀴즈 0문항
+오류 0건 · 경고 13건
+  [경고] .claude\skills\learn-auto-pdm\references\block0-workspace.md: 수치 자리표시자 남음 ['{{expected:lab_file_count}}', '{{expected:rows_sensor}}', '{{expected:rows_trap}}'] (4단계에서 채움)
+  [경고] .claude\skills\learn-auto-pdm\references\block1-data-check.md: QUIZ 미작성
+  [경고] .claude\skills\learn-auto-pdm\references\block1-data-check.md: 수치 자리표시자 남음 ['{{expected:rows_cases}}', '{{expected:cases_with_numbers}}', '{{expected:unit_fix_count}}'] (4단계에서 채움)
+  [경고] .claude\skills\learn-auto-pdm\references\block2-normal-range.md: QUIZ 미작성
+  [경고] .claude\skills\learn-auto-pdm\references\block2-normal-range.md: 수치 자리표시자 남음 ['{{expected:a_vib_mean}}', '{{expected:a_vib_low}}', '{{expected:a_vib_high}}'] (4단계에서 채움)
+  [경고] .claude\skills\learn-auto-pdm\references\block3-noise-vs-trend.md: QUIZ 미작성
+  [경고] .claude\skills\learn-auto-pdm\references\block3-noise-vs-trend.md: 수치 자리표시자 남음 ['{{expected:a_vib_outlier}}', '{{expected:a_vib_judgement}}', '{{expected:b_vib_outliers}}'] (4단계에서 채움)
+  [경고] .claude\skills\learn-auto-pdm\references\block4-report.md: QUIZ 미작성
+  [경고] .claude\skills\learn-auto-pdm\references\block4-report.md: 수치 자리표시자 남음 ['{{expected:anomaly_total}}', '{{expected:a_vib_outlier}}', '{{expected:b_vib_trend_start}}'] (4단계에서 채움)
+  [경고] .claude\skills\learn-auto-pdm\references\block5-pilot.md: QUIZ 미작성
+  [경고] .claude\skills\learn-auto-pdm\references\block5-pilot.md: 수치 자리표시자 남음 ['{{expected:pilot_ranking}}', '{{expected:press_annual_loss}}', '{{expected:pilot_first}}'] (4단계에서 채움)
+  [경고] .claude\skills\learn-auto-pdm\references\block6-publish-share.md: QUIZ 미작성
+  [경고] .claude\skills\learn-auto-pdm\references\block6-publish-share.md: 수치 자리표시자 남음 ['{{expected:lab_file_count}}'] (4단계에서 채움)

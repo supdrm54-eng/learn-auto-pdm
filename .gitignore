@@ -1,0 +1,17 @@
+# 수강생 환경 기록·임시 파일
+env_check.txt
+*.tmp
+*.bak
+forge/qa/*.png
+forge/manual/node_modules/
+
+# 정답 스크립트 실행 중간물
+__pycache__/
+*.pyc
+expected.json
+!.claude/skills/learn-auto-pdm/assets/answers/expected.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>예지보전 대시보드</title>
+<style>
+:root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#2f5d8a; --band:#2f5d8a1f; --limit:#2f5d8a80;
+  --dot:#c0392b; --start:#b7791f; --border:#e3e2dd; --best:#2f5d8a; --bar:#b8c4cf; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#161615; --card:#21211f; --ink:#ecebe6; --muted:#a3a29c;
+  --line:#7fb0e0; --band:#7fb0e026; --limit:#7fb0e080; --dot:#ff6b5b; --start:#e3a84a; --border:#33332f; --best:#7fb0e0; --bar:#4a5560; } }
+:root[data-theme="dark"] { --bg:#161615; --card:#21211f; --ink:#ecebe6; --muted:#a3a29c; --line:#7fb0e0; --band:#7fb0e026;
+  --limit:#7fb0e080; --dot:#ff6b5b; --start:#e3a84a; --border:#33332f; --best:#7fb0e0; --bar:#4a5560; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 system-ui,-apple-system,"Malgun Gothic","Apple SD Gothic Neo",sans-serif; }
+main { max-width:1080px; margin:0 auto; padding:24px 16px 48px; }
+h1 { font-size:1.5rem; margin:0 0 4px; } h2 { font-size:1.1rem; margin:28px 0 10px; }
+.muted { color:var(--muted); font-weight:400; } .note { display:inline-block; font-size:.8rem; padding:2px 8px; border:1px solid var(--border); border-radius:99px; color:var(--muted); }
+.summary { font-size:1.05rem; margin:10px 0 0; }
+.grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); }
+.charts { grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); }
+.card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px; margin:0; min-width:0; }
+.kpi b { display:block; font-size:1.6rem; } .kpi span { color:var(--muted); font-size:.85rem; }
+figcaption { margin-bottom:6px; } svg { width:100%; height:auto; display:block; }
+.band { fill:var(--band); } .limit { stroke:var(--limit); stroke-dasharray:4 3; } .line { fill:none; stroke:var(--line); stroke-width:2; }
+.dot { fill:var(--dot); } .start { stroke:var(--start); stroke-width:1.5; stroke-dasharray:3 3; } .start-label { fill:var(--start); font-size:11px; }
+.tick { fill:var(--muted); font-size:11px; }
+.table-wrap { overflow-x:auto; } table { width:100%; border-collapse:collapse; font-size:.9rem; }
+th,td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--border); } th { color:var(--muted); font-weight:500; }
+.tag { padding:1px 8px; border-radius:99px; border:1px solid var(--border); } .tag.warn { border-color:var(--dot); color:var(--dot); }
+.bar-row { display:grid; grid-template-columns:3.5em 1fr 4.5em; gap:8px; align-items:center; margin:6px 0; }
+.bar-track { background:var(--bg); border-radius:4px; height:14px; } .bar { display:block; height:100%; border-radius:4px; background:var(--bar); }
+.bar.best { background:var(--best); } .bar-val { text-align:right; font-variant-numeric:tabular-nums; }
+ol,ul { padding-left:1.2em; margin:6px 0; } footer { margin-top:32px; font-size:.85rem; color:var(--muted); }
+a { color:var(--line); word-break:break-all; }
+</style></head>
+<body><main>
+<span class="note">실습용 가상 데이터</span>
+<h1>예지보전 대시보드 <span class="muted">— 프레스 메인모터 · 차체 용접로봇 감속기</span></h1>
+<p class="summary">이상 후보 4건 중 설비B 감속기의 진동·온도가 <b>추세</b>로 판정됐다. 진동 상승 시작 <b>15:00</b> 기준 다음 휴무일 계획 정비를 권고하고, 예지보전 파일럿은 <b>프레스</b>(2.59배)부터 시작한다.</p>
+
+<h2>한눈에</h2>
+<div class="grid">
+ <div class="card kpi"><b>4건</b><span>이상 후보 (평균 ± 2σ 밖)</span></div>
+ <div class="card kpi"><b>15:00</b><span>설비B 진동 상승 시작 = 정비 필요 시점</span></div>
+ <div class="card kpi"><b>12:40</b><span>설비B 온도 범위 안 상승 시작 (추정)</span></div>
+ <div class="card kpi"><b>프레스 2.59배</b><span>파일럿 1순위 (연간 정지손실 ÷ 초기 투자)</span></div>
+</div>
+
+<h2>센서 추이 <span class="muted">띠 = 평상 범위, 빨간 점 = 이상 후보, 세로 점선 = 상승 시작</span></h2>
+<div class="grid charts"><figure class="card chart"><figcaption><b>설비A</b> 진동 (mm/s) <span class="muted">평상 범위 0.09~2.10</span></figcaption><svg viewBox="0 0 520 220" role="img" aria-label="설비A 진동 추이"><rect x="44" y="89.9" width="464" height="91.7" class="band"/><line x1="44" x2="508" y1="89.9" y2="89.9" class="limit"/><text x="38" y="185.6" class="tick" text-anchor="end">0.1</text><text x="38" y="108.0" class="tick" text-anchor="end">1.8</text><text x="38" y="30.4" class="tick" text-anchor="end">3.5</text><text x="44.0" y="212" class="tick" text-anchor="middle">08:00</text><text x="160.0" y="212" class="tick" text-anchor="middle">10:00</text><text x="276.0" y="212" class="tick" text-anchor="middle">12:00</text><text x="392.0" y="212" class="tick" text-anchor="middle">14:00</text><text x="508.0" y="212" class="tick" text-anchor="middle">16:00</text><path d="M44.0,140.5 L63.3,137.8 L82.7,143.7 L102.0,143.3 L121.3,137.8 L140.7,140.1 L160.0,143.3 L179.3,141.9 L198.7,143.3 L218.0,141.9 L237.3,137.4 L256.7,140.1 L276.0,135.5 L295.3,144.6 L314.7,26.4 L334.0,140.1 L353.3,138.3 L372.7,142.8 L392.0,137.4 L411.3,137.4 L430.7,139.2 L450.0,138.7 L469.3,140.5 L488.7,143.3 L508.0,138.7" class="line"/><circle cx="314.7" cy="26.4" r="5" class="dot"><title>12:40 3.5 mm/s</title></circle></svg></figure><figure class="card chart"><figcaption><b>설비A</b> 온도 (℃) <span class="muted">평상 범위 50.41~53.14</span></figcaption><svg viewBox="0 0 520 220" role="img" aria-label="설비A 온도 추이"><rect x="44" y="26.4" width="464" height="155.2" class="band"/><line x1="44" x2="508" y1="26.4" y2="26.4" class="limit"/><text x="38" y="185.6" class="tick" text-anchor="end">50.4</text><text x="38" y="108.0" class="tick" text-anchor="end">51.8</text><text x="38" y="30.4" class="tick" text-anchor="end">53.1</text><text x="44.0" y="212" class="tick" text-anchor="middle">08:00</text><text x="160.0" y="212" class="tick" text-anchor="middle">10:00</text><text x="276.0" y="212" class="tick" text-anchor="middle">12:00</text><text x="392.0" y="212" class="tick" text-anchor="middle">14:00</text><text x="508.0" y="212" class="tick" text-anchor="middle">16:00</text><path d="M44.0,147.8 L63.3,108.1 L82.7,96.7 L102.0,40.0 L121.3,113.8 L140.7,119.4 L160.0,153.5 L179.3,119.4 L198.7,142.1 L218.0,113.8 L237.3,85.4 L256.7,102.4 L276.0,62.7 L295.3,147.8 L314.7,45.6 L334.0,153.5 L353.3,102.4 L372.7,28.6 L392.0,62.7 L411.3,147.8 L430.7,113.8 L450.0,45.6 L469.3,153.5 L488.7,108.1 L508.0,85.4" class="line"/></svg></figure><figure class="card chart"><figcaption><b>설비B</b> 진동 (mm/s) <span class="muted">평상 범위 0.30~2.08</span></figcaption><svg viewBox="0 0 520 220" role="img" aria-label="설비B 진동 추이"><rect x="44" y="75.2" width="464" height="106.4" class="band"/><line x1="44" x2="508" y1="75.2" y2="75.2" class="limit"/><text x="38" y="185.6" class="tick" text-anchor="end">0.3</text><text x="38" y="108.0" class="tick" text-anchor="end">1.6</text><text x="38" y="30.4" class="tick" text-anchor="end">2.9</text><text x="44.0" y="212" class="tick" text-anchor="middle">08:00</text><text x="160.0" y="212" class="tick" text-anchor="middle">10:00</text><text x="276.0" y="212" class="tick" text-anchor="middle">12:00</text><text x="392.0" y="212" class="tick" text-anchor="middle">14:00</text><text x="508.0" y="212" class="tick" text-anchor="middle">16:00</text><line x1="450.0" x2="450.0" y1="14" y2="194" class="start"/><text x="446.0" y="24" class="start-label" text-anchor="end">상승 시작 15:00</text><path d="M44.0,143.5 L63.3,137.0 L82.7,138.2 L102.0,138.2 L121.3,137.0 L140.7,140.0 L160.0,137.0 L179.3,139.4 L198.7,139.4 L218.0,142.3 L237.3,138.8 L256.7,139.4 L276.0,137.6 L295.3,137.6 L314.7,136.4 L334.0,137.0 L353.3,134.6 L372.7,134.6 L392.0,132.8 L411.3,134.6 L430.7,140.0 L450.0,122.0 L469.3,98.1 L488.7,68.2 L508.0,26.4" class="line"/><circle cx="488.7" cy="68.2" r="5" class="dot"><title>15:40 2.2 mm/s</title></circle><circle cx="508.0" cy="26.4" r="5" class="dot"><title>16:00 2.9 mm/s</title></circle></svg></figure><figure class="card chart"><figcaption><b>설비B</b> 온도 (℃) <span class="muted">평상 범위 50.94~64.62</span></figcaption><svg viewBox="0 0 520 220" role="img" aria-label="설비B 온도 추이"><rect x="44" y="31.7" width="464" height="149.9" class="band"/><line x1="44" x2="508" y1="31.7" y2="31.7" class="limit"/><text x="38" y="185.6" class="tick" text-anchor="end">50.9</text><text x="38" y="108.0" class="tick" text-anchor="end">58.0</text><text x="38" y="30.4" class="tick" text-anchor="end">65.1</text><text x="44.0" y="212" class="tick" text-anchor="middle">08:00</text><text x="160.0" y="212" class="tick" text-anchor="middle">10:00</text><text x="276.0" y="212" class="tick" text-anchor="middle">12:00</text><text x="392.0" y="212" class="tick" text-anchor="middle">14:00</text><text x="508.0" y="212" class="tick" text-anchor="middle">16:00</text><line x1="314.7" x2="314.7" y1="14" y2="194" class="start"/><text x="310.7" y="24" class="start-label" text-anchor="end">상승 시작 12:40</text><path d="M44.0,130.5 L63.3,141.5 L82.7,131.6 L102.0,128.3 L121.3,128.3 L140.7,133.8 L160.0,129.4 L179.3,139.3 L198.7,147.0 L218.0,129.4 L237.3,132.7 L256.7,128.3 L276.0,144.8 L295.3,132.7 L314.7,118.5 L334.0,102.0 L353.3,106.4 L372.7,90.0 L392.0,72.4 L411.3,74.6 L430.7,67.0 L450.0,46.1 L469.3,46.1 L488.7,38.5 L508.0,26.4" class="line"/><circle cx="508.0" cy="26.4" r="5" class="dot"><title>16:00 65.1 ℃</title></circle></svg></figure></div>
+
+<h2>노이즈 vs 추세 판정</h2>
+<div class="card table-wrap"><table><thead><tr><th>설비</th><th>변수</th><th>시각</th><th>값</th><th>평상 범위</th><th>판정</th></tr></thead><tbody><tr><td>설비A</td><td>진동</td><td>12:40</td><td>3.5</td><td>0.09~2.10</td><td><span class='tag '>노이즈</span></td></tr><tr><td>설비B</td><td>진동</td><td>15:40</td><td>2.2</td><td>0.30~2.08</td><td><span class='tag warn'>추세</span></td></tr><tr><td>설비B</td><td>진동</td><td>16:00</td><td>2.9</td><td>0.30~2.08</td><td><span class='tag warn'>추세</span></td></tr><tr><td>설비B</td><td>온도</td><td>16:00</td><td>65.1</td><td>50.94~64.62</td><td><span class='tag warn'>추세</span></td></tr></tbody></table></div>
+
+<h2>예지보전 보고서 요약</h2>
+<div class="grid">
+ <div class="card"><b>정비 권고</b><ul><li>설비B: 진동 15:00부터 연속 상승, 온도 12:40부터 상승 → 다음 휴무일 윤활·베어링 점검(원인 추정)</li><li>설비A: 12:40 진동은 노이즈 — 관찰, 반복 시 센서·배선 점검</li></ul></div>
+ <div class="card"><b>개선안 (추정 기준)</b><ul><li>설비B 측정 주기 20분 → 5분</li><li>'기준 구간 최댓값 초과 3회 연속' 점검 경보 추가, 2주 운영 후 재조정</li></ul></div>
+</div>
+
+<h2>파일럿 공정 선정 <span class="muted">연간 정지손실 ÷ 초기 투자</span></h2>
+<div class="grid">
+ <div class="card"><div class="bar-row"><span class="bar-name">프레스</span><span class="bar-track"><span class="bar best" style="width:100.0%"></span></span><span class="bar-val">2.59배</span></div><div class="bar-row"><span class="bar-name">도장</span><span class="bar-track"><span class="bar" style="width:39.7%"></span></span><span class="bar-val">1.03배</span></div><div class="bar-row"><span class="bar-name">차체</span><span class="bar-track"><span class="bar" style="width:22.2%"></span></span><span class="bar-val">0.58배</span></div><div class="bar-row"><span class="bar-name">조립</span><span class="bar-track"><span class="bar" style="width:18.1%"></span></span><span class="bar-val">0.47배</span></div><p class="muted">시간당 손실은 조립이 가장 크지만 고장이 드물어 배수는 0.47배.</p></div>
+ <div class="card table-wrap"><b>프레스 순효과 (보수적 추정, 만원)</b>
+  <table><thead><tr><th>절감률</th><th>연간 절감</th><th>1년 순효과</th><th>회수</th></tr></thead><tbody><tr><td>20%</td><td>12,960</td><td>-12,040</td><td>1.9년</td></tr><tr><td>30%</td><td>19,440</td><td>-5,560</td><td>1.3년</td></tr></tbody></table>
+  <p class="muted">부품비 절감은 0으로 두었다. 절감률은 가정값.</p></div>
+</div>
+
+<footer>
+데이터: KMA 자동차특화 AI 융합 전문가 과정 강의 저장소 <a href="https://github.com/keerhee/kma-auto-genai-3-1">keerhee/kma-auto-genai-3-1</a> <code>data/Day5/</code> — 설비센서·파일럿 가정값은 실습용 가상 데이터.
+평상 범위는 설비별 평균 ± 2 × 표본표준편차. 상승 시작 = 첫 4시간 최댓값을 넘은 뒤 다시 내려오지 않는 첫 시각.
+만든 방법: Claude Code 수업 <code>learn-auto-pdm</code>.
+</footer>
+</main></body></html>

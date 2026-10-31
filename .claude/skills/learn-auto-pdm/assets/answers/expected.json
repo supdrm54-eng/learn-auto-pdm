@@ -1,0 +1,204 @@
+{
+  "values": {
+    "lab_file_count": {
+      "value": 4,
+      "decimals": 0,
+      "block": 0
+    },
+    "rows_sensor": {
+      "value": 50,
+      "decimals": 0,
+      "block": 0
+    },
+    "rows_trap": {
+      "value": 50,
+      "decimals": 0,
+      "block": 0
+    },
+    "rows_cases": {
+      "value": 6,
+      "decimals": 0,
+      "block": 0
+    },
+    "rows_pilot": {
+      "value": 4,
+      "decimals": 0,
+      "block": 0
+    },
+    "cases_with_numbers": {
+      "value": 4,
+      "decimals": 0,
+      "block": 1
+    },
+    "unit_fix_count": {
+      "value": 6,
+      "decimals": 0,
+      "block": 1
+    },
+    "unit_fix_a_temp": {
+      "value": 3,
+      "decimals": 0,
+      "block": 1
+    },
+    "unit_fix_b_vib": {
+      "value": 2,
+      "decimals": 0,
+      "block": 1
+    },
+    "unit_fix_b_press": {
+      "value": 1,
+      "decimals": 0,
+      "block": 1
+    },
+    "fix_a_1000_temp": {
+      "value": 50.9,
+      "decimals": 1,
+      "block": 1
+    },
+    "fix_b_1500_press": {
+      "value": 116.5,
+      "decimals": 1,
+      "block": 1
+    },
+    "a_vib_mean": {
+      "value": 1.095,
+      "decimals": 3,
+      "block": 2
+    },
+    "a_vib_low": {
+      "value": 0.09,
+      "decimals": 2,
+      "block": 2
+    },
+    "a_vib_high": {
+      "value": 2.1,
+      "decimals": 2,
+      "block": 2
+    },
+    "b_vib_low": {
+      "value": 0.3,
+      "decimals": 2,
+      "block": 2
+    },
+    "b_vib_high": {
+      "value": 2.08,
+      "decimals": 2,
+      "block": 2
+    },
+    "b_temp_low": {
+      "value": 50.94,
+      "decimals": 2,
+      "block": 2
+    },
+    "b_temp_high": {
+      "value": 64.62,
+      "decimals": 2,
+      "block": 2
+    },
+    "anomaly_total": {
+      "value": 4,
+      "decimals": 0,
+      "block": 2
+    },
+    "anomaly_list": {
+      "value": "설비A 진동 12:40 3.5, 설비B 진동 15:40 2.2·16:00 2.9, 설비B 온도 16:00 65.1",
+      "decimals": null,
+      "block": 2
+    },
+    "a_vib_outlier": {
+      "value": "12:40 3.5",
+      "decimals": null,
+      "block": 3
+    },
+    "a_vib_judgement": {
+      "value": "노이즈",
+      "decimals": null,
+      "block": 3
+    },
+    "b_vib_outliers": {
+      "value": "15:40 2.2·16:00 2.9",
+      "decimals": null,
+      "block": 3
+    },
+    "b_vib_judgement": {
+      "value": "추세",
+      "decimals": null,
+      "block": 3
+    },
+    "b_temp_outlier": {
+      "value": "16:00 65.1",
+      "decimals": null,
+      "block": 3
+    },
+    "b_temp_judgement": {
+      "value": "추세",
+      "decimals": null,
+      "block": 3
+    },
+    "b_vib_trend_start": {
+      "value": "15:00",
+      "decimals": null,
+      "block": 3
+    },
+    "b_temp_rise_start": {
+      "value": "12:40",
+      "decimals": null,
+      "block": 3
+    },
+    "task2_noise_window": {
+      "value": "11:40~13:00",
+      "decimals": null,
+      "block": 3
+    },
+    "task2_trend_window": {
+      "value": "14:40~16:00",
+      "decimals": null,
+      "block": 3
+    },
+    "pilot_ranking": {
+      "value": "프레스 2.59 > 도장 1.03 > 차체 0.58 > 조립 0.47",
+      "decimals": null,
+      "block": 5
+    },
+    "pilot_first": {
+      "value": "프레스",
+      "decimals": null,
+      "block": 5
+    },
+    "press_annual_loss": {
+      "value": 64800,
+      "decimals": 0,
+      "block": 5
+    },
+    "press_saving_20": {
+      "value": 12960,
+      "decimals": 0,
+      "block": 5
+    },
+    "press_net_20": {
+      "value": -12040,
+      "decimals": 0,
+      "block": 5
+    },
+    "press_payback_20": {
+      "value": 1.9,
+      "decimals": 1,
+      "block": 5
+    },
+    "press_saving_30": {
+      "value": 19440,
+      "decimals": 0,
+      "block": 5
+    },
+    "press_payback_30": {
+      "value": 1.3,
+      "decimals": 1,
+      "block": 5
+    },
+    "assembly_ratio": {
+      "value": 0.47,
+      "decimals": 2,
+      "block": 5
+    }
+  }
+}
