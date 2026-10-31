@@ -52,6 +52,7 @@ npx skills add supdrm54-eng/learn-auto-pdm --agent claude-code --global --yes �
 | 날짜 | 바뀐 점 |
 |---|---|
 | 2026-10-31 | 첫 판 — 블록 7개(180분), 퀴즈 12문항, 정답 수치 40개 검증 |
+| 2026-10-31 | 배포하며 찾은 4건 반영 — Block 0에서 gh 확인·설치, Block 6에 `gh auth setup-git`·noreply 작성자 주소·일회용 코드 Authorize/만료 안내 ([self_review](forge/self_review.md)) |
 
 ## 만든 방법
 

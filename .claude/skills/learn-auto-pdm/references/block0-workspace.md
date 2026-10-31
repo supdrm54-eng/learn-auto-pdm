@@ -48,7 +48,7 @@
 2. {SKILL_DIR}/assets/lab/ 안의 CSV 4개를 pdm-lab/data/ 로 복사해 줘. 원본 파일은 수정하지 마.
 3. 파일마다 행 수, 열 이름, 처음 2행을 보여 줘. 한글이 깨지면 UTF-8로 다시 읽어 줘.
 4. Python 3이 있는지 확인해 줘(python, python3, py 순서로). 없으면 설치 방법을 알려 주고, 설치는 내 허락을 받은 뒤에 해.
-5. Git이 있는지 확인해 줘. 없으면 마찬가지로 허락을 받고 설치해 줘.
+5. Git과 GitHub CLI(gh)가 있는지 확인해 줘. 없으면 마찬가지로 허락을 받고 설치해 줘(gh는 Block 6에서 대시보드를 공개할 때 쓴다).
 6. 위 결과를 pdm-lab/env_check.txt 에 날짜와 함께 적어 줘.
 7. 비밀번호나 토큰을 묻지 마.
 ```
@@ -63,7 +63,7 @@
 
 - `~/pdm-lab/data/`에 CSV가 4개 있다.
 - 행 수: 설비센서 50행, 단위혼재 50행, 도입사례 6행, 파일럿 가정값 4행.
-- `~/pdm-lab/env_check.txt`에 Python·Git 버전이 적혀 있다.
+- `~/pdm-lab/env_check.txt`에 Python·Git·gh 버전이 적혀 있다.
 - 지금 세션의 작업 폴더가 `pdm-lab`이다.
 
 막히면 원인을 Claude Code에게 찾게 하는 후속 프롬프트를 준다. 정답은 "정답 보기" 요청이 있을 때만 연다.
