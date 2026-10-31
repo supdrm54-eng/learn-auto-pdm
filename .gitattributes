@@ -1,0 +1,2 @@
+# 스킬 frontmatter 와 CSV 를 어느 OS 에서 받아도 LF 로 유지한다
+* text=auto eol=lf
